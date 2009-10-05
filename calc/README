@@ -1,0 +1,3 @@
+* xls-encryption-excel97.xls - This document causes Excel 97 to crash upon 
+  loading, but Excel XP SP3 and later versions can open it just fine.  The 
+  password to open this document is 'aaaaa'.  
