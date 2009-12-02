@@ -1,0 +1,5 @@
+This directory and its sub directories contain all kinds of test documents for
+Calc.  They are organized by content types or test themes, but *not* organized
+by file types.  The reason why they are not oragnized by file types is to make
+it easier to test, for example, importing of identical contents from different
+file types, such as .ods, .xls, and .xlsx, while in the same directory.
