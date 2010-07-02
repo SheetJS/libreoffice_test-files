@@ -1,0 +1,23 @@
+HOWTO run all of this:
+======================
+
+You've obviously cloned the git repo already. You'll now want to
+generate the Python binding classes from the schema. cd into this here
+directory, and issue:
+
+make
+
+That'll spew loads of python files into wml, sml, pml etc. subdirs
+inside this directory. And afterwards run a demo iteration with the
+Lorem-ipsum.docx file. Inspect results in your /tmp/ dir.
+
+How to write your custom iteration rules: look into demo.py, you'll
+basically want to hack the 'worklist' list of regular expressions -
+all schema types matched there will get iterated. See *.xsd files for
+the corresponding XMl schema type names.
+
+More advanced stuff to follow.
+
+Thorsten
+
+
