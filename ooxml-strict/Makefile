@@ -42,7 +42,7 @@ props: shared-documentPropertiesExtended.xsd
 $(TMP):
 	@mkdir -p $@
 
-generate: $(TMP) samples test-wml test-sml test-pml
+generate: bindings $(TMP) samples test-wml test-sml test-pml
 
 #
 # The real test definitions are coming below
