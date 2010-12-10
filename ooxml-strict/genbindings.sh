@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env sh
+
 PYXB_ROOT=${PYXB_ROOT:-`pwd`/../pyxb}
 export PYTHONPATH=${PYXB_ROOT}
 export PATH=${PYXB_ROOT}/scripts:${PATH}
