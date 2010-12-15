@@ -35,13 +35,12 @@ else:
     
     for case in testcases.testcases['tasks']:
         
-        print "\n--- Creating tests '"+case['name']+"'\n"
+        print "--- Creating tests '"+case['name']+"'"
         
         iteration=1
         for (fragment, mimetype, schema, reltype) in package.files(testcases.testcases['mimetypes']):
             saxer = pyxb.binding.saxer.make_parser(location_base=fragment)
             handler = saxer.getContentHandler()
-            print "Parsing fragment %s\n" % fragment
             saxer.parse(StringIO.StringIO(package.read(fragment)))
             sax_instance = handler.rootObject()
         
@@ -52,4 +51,3 @@ else:
                     currOutFile = outDir+"/"+inFileName+"-"+case['name']+str(iteration)+inFileExt
                     package.copyWithReplace(currOutFile,{fragment: sax_instance.toxml().encode('utf-8')})
                     iteration += 1
-                    print "Written "+currOutFile

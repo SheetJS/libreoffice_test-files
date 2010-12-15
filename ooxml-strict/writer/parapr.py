@@ -16,7 +16,7 @@ import re
 from opc import ALL_OOXML as ALL_OOXML
 
 testcases = {
-    'template'  : 'wml_tests/templates/test-paras.docx',
+    'template'  : 'writer/templates/parapr.docx',
     'mimetypes' : ["application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml",
                    "application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"],
     'tasks'     : [

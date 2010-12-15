@@ -44,4 +44,3 @@ else:
                 currOutFile = outDir+"/"+inFileName+str(iteration)+inFileExt
                 package.copyWithReplace(currOutFile,{fragment: sax_instance.toxml().encode('utf-8')})
                 iteration += 1
-                print "Written "+currOutFile

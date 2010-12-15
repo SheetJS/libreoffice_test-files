@@ -23,28 +23,24 @@ import dml.dml, pml.pml, props.props, sml.sml, wml.wml
 def outputxml (package, xml, outDir, iteration, inFileName, inFileExt):
     currOutFile = outDir+"/"+inFileName+str(iteration)+inFileExt
     package.copyWithReplace(currOutFile, xml)
-    print "Written "+currOutFile
 
-
-if len(sys.argv) < 3:
-    print "Usage: dumpsample.py <worklist.py> <input_file> <output_dir>"
+if len(sys.argv) < 4:
+    print "Usage: calc.py <worklist.py> <input_file> <output_dir>"
     sys.exit(1)
-else:    
+else:
     exec "import "+sys.argv[1]+" as worklist"
     inFile = sys.argv[2]
     (inFileName,inFileExt) = os.path.splitext(os.path.basename(inFile))
     outDir = sys.argv[3]
-    
+
     package = opc.OPCPackage(inFile)
     iteration=1
 
     for index in range (0, len(worklist.worklist)):
         for (fragment, mimetype, schema, reltype) in package.files(worklist.mimetypes):
-            #if fragment != "xl/workbook.xml":
             if fragment != "xl/worksheets/sheet1.xml" and \
                fragment != "xl/workbook.xml" and \
                fragment != "xl/comments1.xml":
-                print "Ignorning: "+fragment
                 continue
             saxer = pyxb.binding.saxer.make_parser(location_base=fragment)
             handler = saxer.getContentHandler()
@@ -63,8 +59,6 @@ else:
                         handler2 = saxer2.getContentHandler()
                         saxer2.parse(StringIO.StringIO(sax_instance.toxml().encode('utf-8')))
                         for j in range(index+1, len(worklist.worklist)):
-                            # print package.read(fragment)
-                            # print sax_instance.toxml()
                             sax_instance2 = handler2.rootObject()
                             for contentIter2 in sax_instance2.iterateBinding(worklist.worklist[j](mimetype)):
                                 for i2 in range(worklist.iterations(mimetype)):
