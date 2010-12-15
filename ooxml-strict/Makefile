@@ -100,14 +100,45 @@ $(TMP)/parapr: $(WRITER).py $(WRITER)/parapr.py $(WRITER_TEMPLATES)/parapr.docx
 #
 # Impress tests
 #
-IMPRESS_TESTS=title-and-subtitle-formatted
+IMPRESS_TESTS=title-and-subtitle-formatted \
+			  placeholders \
+			  background_solid \
+			  textbox_align \
+			  textbox_color \
+
+IMPRESS=impress
 
 test-pml: $(IMPRESS_TESTS)
 	$(ECHO) "Generated PML tests"
 
 title-and-subtitle-formatted: $(TMP)/title-and-subtitle-formatted
 $(TMP)/title-and-subtitle-formatted: dumpsample.py pptxpatterns.py title-and-subtitle-formatted.pptx
+	$(ECHO) "Generating title-and-subtitle-formatted"
 	$(PYTHON) dumpsample.py pptxpatterns title-and-subtitle-formatted.pptx $(TMP)
+	$(TOUCH) $@
+
+placeholders: $(TMP)/placeholders
+$(TMP)/placeholders: $(IMPRESS).py $(IMPRESS)/placeholders.py $(IMPRESS)/placeholders.pptx
+	$(ECHO) "Generating placeholders"
+	$(PYTHON) $(IMPRESS).py $(IMPRESS).placeholders $(TMP)
+	$(TOUCH) $@
+
+background_solid: $(TMP)/background_solid
+$(TMP)/background_solid: $(IMPRESS).py $(IMPRESS)/background_solid.py $(IMPRESS)/background_solid.pptx
+	$(ECHO) "Generating background_solid"
+	$(PYTHON) $(IMPRESS).py $(IMPRESS).background_solid $(TMP)
+	$(TOUCH) $@
+
+textbox_align: $(TMP)/textbox_align
+$(TMP)/textbox_align: $(IMPRESS).py $(IMPRESS)/textbox_align.py $(IMPRESS)/textbox_align.pptx
+	$(ECHO) "Generating textbox_align"
+	$(PYTHON) $(IMPRESS).py $(IMPRESS).textbox_align $(TMP)
+	$(TOUCH) $@
+
+textbox_color: $(TMP)/textbox_color
+$(TMP)/textbox_color: $(IMPRESS).py $(IMPRESS)/textbox_color.py $(IMPRESS)/textbox_color.pptx
+	$(ECHO) "Generating textbox_color"
+	$(PYTHON) $(IMPRESS).py $(IMPRESS).textbox_color $(TMP)
 	$(TOUCH) $@
 
 #
