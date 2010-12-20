@@ -27,15 +27,15 @@ dml: dml-main.xsd
 
 pml: pml.xsd
 	$(ECHO) `pwd`
-	./genbindings.sh $< pml pmldiagram pmlchart pmlpicture msocompat pmlcompat pmllockedcanvas
+	./genbindings.sh $< pml pmldiagram pmllockedcanvas pmlchart pmlpicture pmlcompat msocompat
 
 wml: wml.xsd
 	$(ECHO) `pwd`
-	./genbindings.sh $< wml wmldiagram wmlcompat wmldrawing wmlpicture wmlchart wmllockedcanvas
+	./genbindings.sh $< wml wmldiagram wmlchart wmlcompat wmllockedcanvas wmldrawing wmlpicture
 
 sml: sml.xsd
 	$(ECHO) `pwd`
-	./genbindings.sh $< sml smldiagram smlcompat smllockedcanvas smlchart smlpicture
+	./genbindings.sh $< sml smldiagram smlchart smlpicture smlcompat smllockedcanvas
 
 props: shared-documentPropertiesExtended.xsd
 	$(ECHO) `pwd`
