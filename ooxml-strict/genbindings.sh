@@ -22,7 +22,6 @@ rm -rf $MAIN_PREFIX
 mkdir $MAIN_PREFIX ; cd $MAIN_PREFIX
 pyxbgen \
    --schema-root=.. \
-   --no-write-for-customization \
    $PREFIXES \
    -u "${URI}" \
    -r 
