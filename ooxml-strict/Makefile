@@ -8,7 +8,7 @@ TMP=tmp
 ALL:generate
 
 clean:
-	$(RM) dml pml wml sml props
+	$(RM) dml pml wml sml props $(TMP)
 
 download:
 	$(ECHO) "Getting Pyxb"
