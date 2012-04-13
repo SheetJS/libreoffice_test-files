@@ -1,0 +1,9 @@
+The following files come from http://plugtest.opendocsociety.org/doku.php?id=scenarios:20120419:encryption
+and are under public domain:
+
+    encrypt-aoo-34.odt
+    encrypt-lo-351.odt
+    encrypt-ooo-33.odt
+    encrypt-symphony-301.odt
+
+Each is a trivial “Hello world!” text document. The password for each document is “password” (no quotes).
